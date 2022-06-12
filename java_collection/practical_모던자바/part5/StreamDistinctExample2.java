@@ -9,10 +9,10 @@ import java.util.*;
  * page: 139p
  */
 
-public class StreamDistinctExample2{
-    public static <T> Predicate<T> distinctByKey(Function<? super T,?> key){
-        Map<Object,Boolean> seen = new ConcurrentHashMap<>();
-        return t -> seen.putIfAbsent(key.apply(t),Boolean.TRUE) == null;
+public class StreamDistinctExample2 {
+    public static <T> Predicate<T> distinctByKey(Function<? super T, ?> key) {
+        Map<Object, Boolean> seen = new ConcurrentHashMap<>();
+        return t -> seen.putIfAbsent(key.apply(t), Boolean.TRUE) == null;
     }
 
     public static void main(String[] args) {
