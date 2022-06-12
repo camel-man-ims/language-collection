@@ -1,6 +1,11 @@
 # 5장
 
-## [Filter에 관한 내용](./StreamDistinctExample2.java)
+## Filter 예제
+
+> [코드](./StreamDistinctExample2.java)
+
+*예제코드에 대한 설명*
+* filter시 `distinctByKey` 메서드 호출
 
 ```java
 public static <T> Predicate<T> distinctByKey(Function<? super T,?> key){
