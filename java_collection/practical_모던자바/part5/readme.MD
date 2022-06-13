@@ -2,7 +2,7 @@
 
 ## Filter 예제
 
-> [StreamDistinctExample2](./StreamDistinctExample2.java)
+> * [StreamDistinctExample2](./StreamDistinctExample2.java)
 
 *예제코드에 대한 설명*
 * filter시 `distinctByKey` 메서드 호출
@@ -23,7 +23,7 @@ personList.stream().filter(distinctByKey(b -> (b.name + b.age))).forEach(System.
 
 ## Map 순회
 
-> *[MapIterator](./MapIteratorExample.java)
+> * [MapIterator](./MapIteratorExample.java)
 
 * iterator 방식
 * map Entry 방식
@@ -54,7 +54,7 @@ personList.stream().filter(distinctByKey(b -> (b.name + b.age))).forEach(System.
 
 ## Match
 
-> *[Match](./Match.java)
+> * [Match](./Match.java)
 
 * `allMatch`, `anyMatch`, `noneMatch`
   * 모두 맞을 때, 하나라도 맞는 게 있을 때
@@ -62,7 +62,7 @@ personList.stream().filter(distinctByKey(b -> (b.name + b.age))).forEach(System.
 
 ## Find
 
-> *[Find](./Find.java)
+> * [Find](./Find.java)
 > *
 
 * `findAny`, `findFirst`
@@ -82,7 +82,7 @@ personList.stream().filter(distinctByKey(b -> (b.name + b.age))).forEach(System.
 
 ## reduce
 
-> *[Reduce](./Reduce.java)
+> * [Reduce](./Reduce.java)
 
 * 최종연산 중 모두 순회해야 출력이 되는 형태를 reduce라고 한다.
 * reduce의 동작방식
