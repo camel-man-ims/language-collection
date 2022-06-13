@@ -63,7 +63,6 @@ personList.stream().filter(distinctByKey(b -> (b.name + b.age))).forEach(System.
 ## Find
 
 > * [Find](./Find.java)
-> *
 
 * `findAny`, `findFirst`
   * findAny -> 아무거나 맞는 값 반환
