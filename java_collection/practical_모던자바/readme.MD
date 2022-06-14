@@ -1,6 +1,6 @@
 ## Part3~4
 
-* [Part4](./part3%2C4/)
+* [Part3~4](./part3%2C4/)
 
 ## Part5 - Stream & Lambda
 
