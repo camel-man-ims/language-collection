@@ -12,8 +12,8 @@
 
 ## 2. Concurrent API란?
 
-> 개발자들이 병렬 프로그래밍을 쉽게 할 수 있도록 만든 고수준의 API
-> java.util.concurrent에 위치
+> * 개발자들이 병렬 프로그래밍을 쉽게 할 수 있도록 만든 고수준의 API
+> * java.util.concurrent에 위치
 
 ### 2-1) Package
 
