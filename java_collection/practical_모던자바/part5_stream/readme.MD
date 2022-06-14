@@ -1,5 +1,25 @@
 # 5장
 
+## Comparator
+
+> * https://broduck.tistory.com/5
+> * [CompTest](./CompTest.java)
+
+* lambda 이용
+
+```java
+(o1,o2)-> Integer.compare(o2.age,o1.age)
+```
+
+* lambda의 경우 multi-line일 경우 `{}`과 `return`을 명시해주어야 한다.
+
+* `Comparator.comparing` 이용
+
+```java
+Comparator.comparing(Person::getAge)
+Comparator.comparing((Person p)->p.age())
+```
+
 ## Filter 예제
 
 > * [StreamDistinctExample2](./StreamDistinctExample2.java)
@@ -28,7 +48,7 @@ personList.stream().filter(distinctByKey(b -> (b.name + b.age))).forEach(System.
 * iterator 방식
 * map Entry 방식
 * keyset 방식
-* forEach 방식
+* *forEach 방식*
 
 ## forEach를 stream API를 사용할 때 장점
 
@@ -87,3 +107,8 @@ personList.stream().filter(distinctByKey(b -> (b.name + b.age))).forEach(System.
 * reduce의 동작방식
   * (초기값, (x,y) -> 연산)
   * x에 누적값 쌓여가는 방식
+
+## 핵심요약
+
+> * [Summary](./Summary.java)
+

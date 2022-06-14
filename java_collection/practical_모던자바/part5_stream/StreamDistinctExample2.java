@@ -1,4 +1,4 @@
-package java_collection.practical_모던자바.part5;
+package java_collection.practical_모던자바.part5_stream;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;

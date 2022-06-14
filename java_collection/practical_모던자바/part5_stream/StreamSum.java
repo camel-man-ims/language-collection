@@ -1,4 +1,4 @@
-package java_collection.practical_모던자바.part5;
+package java_collection.practical_모던자바.part5_stream;
 
 import java.util.ArrayList;
 import java.util.Arrays;
