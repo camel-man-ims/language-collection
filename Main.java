@@ -2,10 +2,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Main {
+
+    static int recurse(int n){
+        if(n<=1) return n;
+        int sum = 0;
+        sum += recurse(n-1) + n;
+        return sum;
+    }
+
     public static void main(String[] args) {
-        Map<Integer,Integer> map = new HashMap<>();
-        
-        Integer putIfAbsent = map.putIfAbsent(1, 2);
-        System.out.println(map);
+        System.out.println(Main.recurse(10));
     }
 }

@@ -17,8 +17,8 @@ import java.util.concurrent.TimeUnit;
 public class PeriodTask4 {
     public static void main(String[] args) {
         ScheduledExecutorService execService = Executors.newScheduledThreadPool(2);
-        execService.scheduleWithFixedDelay(new MyTask("Thread 1"), 5, 10, TimeUnit.SECONDS);
-        execService.scheduleAtFixedRate(new MyTask("Thread 2"), 5, 10, TimeUnit.SECONDS);
-        execService.scheduleAtFixedRate(new MyTask("Thread 3"), 5, 10, TimeUnit.SECONDS);
+        execService.scheduleWithFixedDelay(new MyTask("Thread 1"), 1, 2, TimeUnit.SECONDS);
+        execService.scheduleAtFixedRate(new MyTask("Thread 2"), 1, 2, TimeUnit.SECONDS);
+        execService.scheduleAtFixedRate(new MyTask("Thread 3"), 1, 2, TimeUnit.SECONDS);
     }
 }

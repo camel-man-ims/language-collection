@@ -57,6 +57,7 @@ personList.stream().filter(distinctByKey(b -> (b.name + b.age))).forEach(System.
 
 ## 5. Stream 메서드들
 
+> * [주요메서드 목록](./stream%EC%A3%BC%EC%9A%94%EB%A9%94%EC%84%9C%EB%93%9C.md)
 > * [StreamMapExample](./StreamMapExample.java)
 > * [StreamSoretedExample](./StreamSortedExample2.java)
 > * [StreamCollectExample](./StreamCollectExample.java)
