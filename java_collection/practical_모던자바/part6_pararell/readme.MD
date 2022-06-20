@@ -89,7 +89,7 @@
 
 ### 5-2) TimeUnit
 
-* DAYS, HOURS, MIUTES, SECONDS, MILLISEOCONDS, MICROSECONDS, NANOSECONDS
+* DAYS, HOURS, MINUTES, SECONDS, MILLISECONDS, MICROSECONDS, NANOSECONDS
 * seconds 이후 1/1000씩 감소
 * 기존 sleep
   * `Thread.sleep(1000)`
@@ -97,3 +97,16 @@
 * TimeUnit Sleep
   * `TimeUnit.SECONDS.sleep(1)`
     * 1초 대기
+
+## 6. Future
+
+> * [FutureExample](./FutureExample7.java) 
+
+* Future interface란?
+
+> 비동기 연산 작업의 결과를 손쉽게 확인할 수 있는 인터페이스
+
+* `Callable`
+  * Runnable과 마찬가지로 멀티 스레드 기반으로 동작하기 위한 인터페이스
+    * Runnable은 메서드가 void형인 run method만 존재하기 때문에 실행결과를 return하지 않는다.
+      * 만약 결과값이 존재한다면 callable을 이용해야만 한다.
