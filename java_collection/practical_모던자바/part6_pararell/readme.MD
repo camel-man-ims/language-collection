@@ -117,7 +117,7 @@
 > * [InsuranceEX1](./InsuranceCalculatorBasic9.java)
 > * [InsuranceEX2](./InsuranceCalculatorExtend10.java)
 
-> 💡 java 멀티 스레드 프로그래밍의 최종 결과물
+> 💡 java 멀티 스레드 프로그래밍의 최종 결과물<br/>
 > 솔직히 잘 이해는 안된다.. 나중에 프로젝트에 적용해야 할 때가 있으면 다시 보면 좋을 것 같다.
 
 * `runAsync` 혹은 `supplyAsync`를 통해서 작업을 시작한다.
