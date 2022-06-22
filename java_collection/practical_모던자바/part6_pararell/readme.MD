@@ -110,3 +110,16 @@
   * Runnable과 마찬가지로 멀티 스레드 기반으로 동작하기 위한 인터페이스
     * Runnable은 메서드가 void형인 run method만 존재하기 때문에 실행결과를 return하지 않는다.
       * 만약 결과값이 존재한다면 callable을 이용해야만 한다.
+
+## 7. CompletableFuture
+
+> * [CompletableFuture](./CompletableFuture8.java)
+> * [InsuranceEX1](./InsuranceCalculatorBasic9.java)
+> * [InsuranceEX2](./InsuranceCalculatorExtend10.java)
+
+> 💡 java 멀티 스레드 프로그래밍의 최종 결과물
+> 솔직히 잘 이해는 안된다.. 나중에 프로젝트에 적용해야 할 때가 있으면 다시 보면 좋을 것 같다.
+
+* `runAsync` 혹은 `supplyAsync`를 통해서 작업을 시작한다.
+* `thenRun`, `thenAccpt`를 통해 다음 메서드를 수행한다.
+* 다 끝나면`complete`로 return 할 수 있다.
