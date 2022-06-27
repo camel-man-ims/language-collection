@@ -139,7 +139,7 @@
 1. 해당 PC나 서버의 코어 수에 따라 스레드가 생성된다.
 2. 만약 4개의 스레드가 생성됐다고 하면, 하나만 이름이 main이고 나머지는 `ForkJoinPool` 스레드로 생성된다.
    * 코어 수 기반 스레드는 Stream에서 제어한 것이 아니라, `Concurrent API`의 `ForkJoinPool`의 기본값에 영향을 받은 것이다.
-   * <img width=500 src="./images/parallel1.png">
+   * <img width=800 src="./images/parallel1.png">
 
 ### 8-2) 병렬처리 Custom
 
@@ -162,7 +162,7 @@ System.out.println("thread pool size = " + ForkJoinPool.getCommonPoolParallelism
 
 위의 코드와 같이 `System.setProperty()` 를 통해 기본 값을 변경한다.
 * 위의 방법은 main 메서드 외 추가적으로 2개의 메서드가 생성된다.
-* <img width=500 src="./images/parallel2.png">
+* <img width=800 src="./images/parallel2.png">
 * `ForkJoinPool` 의 기본값을 변경하는 것이기 때문에 JVM 전체에 영향을 미친다.
   * 특정한 프로세스 혹은 스레드에 대해서만 변경할 수 없으며, JVM이 종료될 때까지 설정이 유효하다.
 
