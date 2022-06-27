@@ -166,7 +166,7 @@ System.out.println("thread pool size = " + ForkJoinPool.getCommonPoolParallelism
 * `ForkJoinPool` 의 기본값을 변경하는 것이기 때문에 JVM 전체에 영향을 미친다.
   * 특정한 프로세스 혹은 스레드에 대해서만 변경할 수 없으며, JVM이 종료될 때까지 설정이 유효하다.
 
-* 사용자 정의 풀을 사용
+#### 사용자 정의 풀을 사용
 
 ```java
 ForkJoinPool customPool = new ForkJoinPool(2)
