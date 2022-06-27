@@ -74,9 +74,9 @@
 ### 5-1) Schedule method overloading
 
 *Parameter*
-  * 1. 실행되는 동작
-  * 2. 딜레이 ( 처음 딜레이, 이후에 주기적 나중 딜레이 )
-  * 3. 시간단위
+  1. 실행되는 동작
+  2. 딜레이 ( 처음 딜레이, 이후에 주기적 나중 딜레이 )
+  3. 시간단위
 
 * 한 번만 실행
   * `schedule(Runnable r, long delay, TimeUnit unit)`
