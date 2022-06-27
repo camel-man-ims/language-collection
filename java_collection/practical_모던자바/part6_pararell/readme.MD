@@ -123,3 +123,66 @@
 * `runAsync` 혹은 `supplyAsync`를 통해서 작업을 시작한다.
 * `thenRun`, `thenAccpt`를 통해 다음 메서드를 수행한다.
 * 다 끝나면`complete`로 return 할 수 있다.
+
+## 8. Stream 병렬처리
+
+### 8-1) 병렬처리
+
+> * [InsideParallelStream: 병렬 스트림 기본 예제](./InsideParallelStream12.java)
+
+스트림에서 제공하는 `parallelStream()` 메서드를 통해 손쉽게 병렬처리를 할 수 있다.
+* 이 때, stream의 data처리를 할 때 순서가 중요하다면 병렬처리를 하면 안된다.
+  * 병렬처리를 순서를 보장하지 않는다.
+  * 예를들어 `reduce()` 연산이라면 순서를 보장하지 않아도 상관없기에, `reduce()` 같은 경우엔 병렬 처리를 하는 것이 도움된다.
+
+해당 `parallelStream()`은 2가지 특징을 갖는다.
+1. 해당 PC나 서버의 코어 수에 따라 스레드가 생성된다.
+2. 만약 4개의 스레드가 생성됐다고 하면, 하나만 이름이 main이고 나머지는 `ForkJoinPool` 스레드로 생성된다.
+   * 코어 수 기반 스레드는 Stream에서 제어한 것이 아니라, `Concurrent API`의 `ForkJoinPool`의 기본값에 영향을 받은 것이다.
+   * <img width=500 src="./images/parallel1.png">
+
+### 8-2) 병렬처리 Custom
+
+> * [InsideParallelStream: Thread 수 custom 방법1](./InsideParallelStreamCustom13.java)
+> * [InsideParallelStream: Thread 수 custom 방법2](./InsideParallelStreamCustom2_14.java)
+
+`parallelStream()` 으로 생성된 병렬 스트림은 PC혹은 서버의 CPU 코어 수 만큼 생성되고, 전체 CPU 자원을 선점한다.
+그러므로 병렬 처리시 다른 서비스에 영향을 줄 수 있으므로, 스레드 개수를 제어할 필요가 있다.
+
+방법은 아래와 같이 2가지가 존재한다.
+1. ForkJoinPool의 기본 스레드 값을 변경
+2. ForkJoinPool이 아닌 다른 스레드 풀을 사용
+
+* ForkJoinPool의 기본 스레드 값을 변경
+
+```java
+System.setProperty("java.util.concurrent.ForkJoinPool.common.parallelism","2");
+System.out.println("thread pool size = " + ForkJoinPool.getCommonPoolParallelism());
+```
+
+위의 코드와 같이 `System.setProperty()` 를 통해 기본 값을 변경한다.
+* 위의 방법은 main 메서드 외 추가적으로 2개의 메서드가 생성된다.
+* <img width=500 src="./images/parallel2.png">
+* `ForkJoinPool` 의 기본값을 변경하는 것이기 때문에 JVM 전체에 영향을 미친다.
+  * 특정한 프로세스 혹은 스레드에 대해서만 변경할 수 없으며, JVM이 종료될 때까지 설정이 유효하다.
+
+* 사용자 정의 풀을 사용
+
+```java
+ForkJoinPool customPool = new ForkJoinPool(2)
+customPool.submit(()->{
+...
+}).get()
+```
+
+이 코드는 main 메서드가 존재하지 않고, `ForkJoinPool` 의 parameter로 넘긴 값만큼만 스레드가 생성되기 때문에 좀 더 직관적이나,코드가 좀 더 복잡할 수 있다.
+
+### 8-3) parallel & sequential
+
+순차처리와 병렬처리를 섞어서 사용할 수 있다.
+
+```java
+list.stream().limit(100).parallelStream().reduce(Integer::sum)
+```
+
+앞의 100개에 대해서 자르는 것은 순차성이 필요하고, 뒤에 `reduce()` 연산같은 경우 순서가 상관없기에 병렬처리를 하는 것이 더 효율적이다.
